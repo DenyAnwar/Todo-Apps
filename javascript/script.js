@@ -54,7 +54,7 @@ function findTodoIndex(todoId) {
  */
 function isStorageExist() {
   if (typeof (Storage) === undefined) {
-    alert('Browser kamu tidak mendukung local storage');
+    alert('Browser is not supporting the local storage');
     return false;
   }
 
@@ -190,11 +190,13 @@ function addTodo() {
 
     const generatedID = editID;
     const todoObject = generateTodoObject(generatedID, textTodo, timestamp, false);
-   
-    todos.push(todoObject);
 
-    // delete old data from array, to avoid double data after edit data
-    todos.splice(0, 1);
+    // replace data in array with a new one (data after edited), if id is duplicate
+    for (const index in todos) {
+      if (todos[index].id === todoObject.id) {
+        todos.splice(index, 1, todoObject);
+      }
+    }
 
     document.dispatchEvent(new Event(RENDER_EVENT));
 
