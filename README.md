@@ -4,7 +4,7 @@ This application i have crafted using vanila javascript.
 
 This application serves to note your work or activity, 
 which work has been done and which work still in-progress.
-Ini this app we can see the date of deadline from your work or activity.
+In this app we can see the date of deadline from your work or activity.
 
 ## 🚀 Quick Start
 1.  **Step 1.**
